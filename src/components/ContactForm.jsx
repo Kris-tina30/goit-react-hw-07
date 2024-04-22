@@ -1,11 +1,8 @@
-import React, { useEffect } from 'react';
-import { nanoid } from 'nanoid';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import css from './ContactForm.module.css';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { addContact } from '../redux/contactsOps';
-import { selectLoading, selectError, selectContacts } from '../redux/selectors';
 
 const MAX_CHAR_VALIDATION = 50;
 const MIN_CHAR_VALIDATION = 3;
@@ -35,20 +32,6 @@ const FORM_INITIAL_VALUES = {
 
 function ContactForm() {
   const dispatch = useDispatch();
-  // const contacts = useSelector(selectContacts);
-  const loading = useSelector(selectLoading);
-  const error = useSelector(selectError);
-
-
-
-    // const onAddContact = formData => {
-    //   const finalContact = {
-    //     ...formData,
-    //     id: nanoid(),
-    //   };
-
-    //   dispatch(addContact(finalContact));
-    // };
 
   const handleSubmit = (values, actions) => {
     console.log('values: ', values);
